@@ -3,3 +3,8 @@
   url = "https://github.com/tmux-plugins/tpm.git"
   refreshPeriod = "168h"
 
+[".config/fish/functions/fisher.fish"]
+  type = "file"
+  url = "https://raw.githubusercontent.com/jorgebucaran/fisher/refs/heads/main/functions/fisher.fish"
+  refreshPeriod = "168h"
+
