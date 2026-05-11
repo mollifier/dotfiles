@@ -1,0 +1,76 @@
+[user]
+  name = mollifier
+  email = mollifier@gmail.com
+[init]
+	defaultBranch = main
+[core]
+  pager = less --RAW-CONTROL-CHARS --quit-if-one-screen
+  excludesfile = ~/.gitignore
+  editor = vim
+[push]
+	default = nothing
+[rebase]
+	autosquash = true
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
+  grep = auto
+[alias]
+  s = status --short --branch
+  st = status
+  u = status
+  ci = commit
+  co = checkout
+  sw = switch
+  re = restore
+
+  # ammend with existing message
+  commit-amend-no-edit = commit --amend --no-edit
+
+  # branch
+  br = branch
+  brm = branch --merged
+  branch-merged = branch --merged
+  brno = branch --no-merged
+  branch-no-merged = branch --no-merged
+
+  # safety force push
+  push-force = push --force-with-lease --force-if-includes
+
+  # log
+  l = log --pretty=oneline --abbrev-commit
+  lo = log --name-status
+  log-with-stat = log --stat
+  log-with-diff = log -p
+  l1 = log HEAD@{1}..HEAD
+  l1-with-diff = log HEAD@{1}..HEAD -p
+  log-graph = log --graph --date=short --pretty=format:'%Cgreen%h %cd %Cblue%cn %Creset%s'
+  log-graph-all = log --graph --all --color --pretty='%x09%h %cn%x09%s %Cred%d%Creset'
+
+  # diff
+  d = diff
+  di = diff
+  dc = diff --cached
+  dw = diff --color-words
+  d1 = diff HEAD~
+  d2 = diff HEAD~~
+  d3 = diff HEAD~~~
+  dh = diff HEAD
+
+  grepn = grep -n
+
+  utility-list-unmerged-files = ls-files --unmerged
+  # edit conflicted files
+  utility-vim-unmerged-files = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
+  # add conflicted files
+  utility-add-unmerged-files = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
+
+[ghq]
+    root = ~/local/src
+
+[include]
+  path = ~/.gitconfig_local
+
+# vim:set ft=gitconfig:

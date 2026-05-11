@@ -1,0 +1,33 @@
+# Mac
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows thumbnail cache files
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+
+# LibreOffice locks
+.~lock.*#
+
+# Vim swap file
+.*.s[a-v][a-z]
+!*.svg  # use svg file
+.*.sw[a-p]
+.s[a-rt-v][a-z]
+.ss[a-gi-z]
+.sw[a-p]
+
+# Vim backup file
+*~
+
+# Vim undo file
+[._]*.un~
+
+# Vim Auto-generated tag files
+doc/tags
+doc/tags-ja
+
+# vim:set ft=gitignore:
