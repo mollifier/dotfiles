@@ -13,3 +13,9 @@ fish -c 'fisher update'
 # Treat as success on forced periodic execution.
 vim -es -u ~/.vimplug.vim -i NONE -c 'PlugInstall' -c 'qa' || true
 
+# anyenv
+# https://github.com/anyenv/anyenv
+if [ ! -d ~/.config/anyenv/anyenv-install ]; then
+  ~/.anyenv/bin/anyenv install --force-init
+fi
+
