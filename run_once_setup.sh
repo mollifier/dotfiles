@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# directory for vim backup file
+if [ ! -d ~/.local/share/vim/backup ]; then
+  mkdir -p ~/.local/share/vim/backup
+fi
+
 # fisher
 # https://github.com/jorgebucaran/fisher
 fish -c 'fisher update'
