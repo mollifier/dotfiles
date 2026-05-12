@@ -19,3 +19,8 @@ if [ ! -d ~/.config/anyenv/anyenv-install ]; then
   ~/.anyenv/bin/anyenv install --force-init
 fi
 
+~/.anyenv/bin/anyenv install --skip-existing nodenv
+
+eval "$(~/.anyenv/bin/anyenv init - bash)"
+~/.anyenv/envs/nodenv/bin/nodenv install --skip-existing 24.13.1
+
