@@ -8,3 +8,7 @@ fish -c 'fisher update'
 # https://github.com/tmux-plugins/tpm
 ~/.tmux/plugins/tpm/bin/install_plugins
 
+# vim-plug
+# https://github.com/junegunn/vim-plug
+vim -es -u ~/.vimplug.vim -i NONE -c 'PlugInstall' -c 'qa'
+
