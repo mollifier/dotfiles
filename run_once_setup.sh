@@ -10,5 +10,6 @@ fish -c 'fisher update'
 
 # vim-plug
 # https://github.com/junegunn/vim-plug
-vim -es -u ~/.vimplug.vim -i NONE -c 'PlugInstall' -c 'qa'
+# Treat as success on forced periodic execution.
+vim -es -u ~/.vimplug.vim -i NONE -c 'PlugInstall' -c 'qa' || true
 
