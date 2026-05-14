@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# for Dev Container
 # dotfiles.installCommand
 
-true
+chezmoi init --apply mollifier
