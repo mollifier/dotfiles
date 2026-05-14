@@ -150,13 +150,15 @@ set -g GHQ_SELECTOR_OPTS --exact --no-sort --reverse --ansi --color 'bg+:13,hl:3
 #
 # key bindings
 # type `fzf_configure_bindings --help` for more information
-fzf_configure_bindings \
-  --directory=\cxf \
-  --git_log=\cxl \
-  --git_status=\cxs \
-  --history=\cr \
-  --variables= \
-  --processes
+if type -q fzf_configure_bindings
+  fzf_configure_bindings \
+    --directory=\cxf \
+    --git_log=\cxl \
+    --git_status=\cxs \
+    --history=\cr \
+    --variables= \
+    --processes
+end
 
 # mollifier/fish-cd-gitroot #{{{1
 # Add alias
