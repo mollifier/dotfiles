@@ -42,12 +42,16 @@ alias la='ls -a'
 alias ll='ls -lh'
 alias ld='ls -d'
 alias l1='ls -1'
-alias tree='tree -F'
 
-#eza
-alias e='eza --icons'
-alias el='eza --icons -l --git'
-alias ea='eza --icons -a'
+# eza
+# https://github.com/eza-community/eza
+if type -q eza
+  alias e='eza --icons'
+  alias el='eza --icons -l --git'
+  alias ea='eza --icons -a'
+  alias et='eza --tree --icons --git'
+  alias tree='eza --tree --icons --git'
+end
 
 #file operation
 alias rm='rm -i'
@@ -70,13 +74,6 @@ alias vi='vim'
 alias v='vim'
 alias vir='vim -R'
 alias vr='vim -R'
-alias winvi='vim -c "edit ++fileformat=dos ++enc=cp932"'
-alias eucvi='vim -c "edit ++enc=euc-jp"'
-alias gm='gvim'
-
-#grep
-alias gf='grep --with-filename --line-number'
-alias gr='grep --with-filename --line-number --recursive --exclude-dir=.svn'
 
 # show all histories
 alias his='history'
@@ -85,23 +82,10 @@ alias h='history --max=10 | cat'
 
 #etc
 alias g='git'
-alias dirs='dirs -p'
 alias ln='ln -s'
-alias jb='jobs -l'
-alias sc=screen
 alias m='man'
-alias eman="LANG=C man"
-alias em="LANG=C man"
-alias di='diff -u'
-alias rlocate='locate --regex'
-alias ema='emacs -nw'
 alias mkzip='zip -q -r'
 alias pc=pwd-clip
-alias sc=scala
-alias scc=scalac
-alias csc=scalac
-# e.g. 'body 10:20' prints lines 10 to 20
-alias body='bat --style=plain --pager=never --line-range'
 
 function pwd-clip
   pwd | tr -d '\n' | copy_to_clipboard
@@ -118,8 +102,8 @@ end
 function cman --wraps man --description 'Colorized man'
   man -P 'col -bx | bat --language man --style plain --paging always' $argv
 end
-
-alias be='bundle exec'
+# e.g. 'body 10:20' prints lines 10 to 20
+alias body='bat --style=plain --pager=never --line-range'
 
 # global-abbreviation #{{{1
 # Require fish 3.6.0
@@ -150,12 +134,9 @@ abbr --add M --position anywhere '| bat --language man'
 # Install fisher
 # $ curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
 #
-# Update fisher
-# $ fisher self-update
-#
 # Install or Update packages
-# set this file to ~/.config/fish/fishfile, and run next command
-# $ fisher
+# set this file to ~/.config/fish/fish_plugins, and run next command
+# $ fisher update
 
 # decors/fish-ghq #{{{1
 # require fzf https://github.com/junegunn/fzf
