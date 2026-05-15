@@ -3,4 +3,4 @@
 # for Dev Container
 # dotfiles.installCommand
 
-chezmoi init --apply mollifier
+chezmoi init --apply --debug mollifier
