@@ -175,7 +175,7 @@ if test -d $HOME/.anyenv/bin
   fish_add_path --path $HOME/.anyenv/bin
 end
 if type -q anyenv
-  status --is-interactive; and status --is-login; and anyenv init - fish | source
+  status --is-interactive; and anyenv init - fish | source
 end
 
 # direnv #{{{1
