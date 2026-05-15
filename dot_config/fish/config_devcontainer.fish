@@ -1,10 +1,12 @@
 # for Dev Container
 
 if test -d /command-history
-  set -x XDG_DATA_HOME /command-history
-  if test ! -d /command-history/fish
-    mkdir -p /command-history/fish
+  if test ! -d ~/.local/share/fish
+    mkdir -p ~/.local/share/fish
   end
-  ln -s /command-history/fish/fish_history /command-history/.command_history
+  if test -f ~/.local/share/fish/fish_history
+    mv -f ~/.local/share/fish/fish_history ~/.local/share/fish/fish_history.bak
+  end
+  ln -s /command-history/.command_history ~/.local/share/fish/fish_history
 end
 
