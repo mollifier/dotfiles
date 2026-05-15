@@ -16,6 +16,11 @@
   branch = auto
   interactive = auto
   grep = auto
+{{- if eq (env "MANAGED_DEVCONTAINER") "true" }}
+[url "https://github.com/"]
+	insteadOf = git@github.com:
+{{- else }}
+{{- end }}
 [alias]
   s = status --short --branch
   st = status
