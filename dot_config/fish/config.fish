@@ -192,3 +192,6 @@ switch (uname)
     test -f ~/.config/fish/config_mac.fish; and source ~/.config/fish/config_mac.fish
 end
 
+if test -n $MANAGED_DEVCONTAINER
+  test -f ~/.config/fish/config_devcontainer.fish; and source ~/.config/fish/config_devcontainer.fish
+end
