@@ -75,10 +75,12 @@ alias v='vim'
 alias vir='vim -R'
 alias vr='vim -R'
 
-# show all histories
-alias his='history'
-# show recent 10 histories
-alias h='history --max=10 | cat'
+# history
+function history --wraps='history' --description 'Colorized history with pager'
+  builtin history --color=always $argv | less --RAW-CONTROL-CHARS
+end
+alias his='builtin history'
+alias h='builtin history --max=10'
 
 #etc
 alias g='git'
