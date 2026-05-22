@@ -93,8 +93,10 @@ function pwd-clip
   pwd | tr -d '\n' | copy_to_clipboard
 end
 
-if type -q fdfind
-  alias fd=fdfind
+if type -q fd
+  alias fd='fd --hidden --case-sensitive --glob'
+else if type -q fdfind
+  alias fd='fdfind --hidden --case-sensitive --glob'
 end
 if type -q batcat
   alias bat=batcat
