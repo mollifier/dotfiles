@@ -188,6 +188,14 @@ if type -q direnv
   direnv hook fish | source
 end
 
+# gtr #{{{1
+# https://github.com/coderabbitai/git-worktree-runner
+if type -q git-gtr
+  set -l _gtr_init (test -n "$XDG_CACHE_HOME" && echo $XDG_CACHE_HOME || echo $HOME/.cache)/gtr/init-gtr.fish
+  test -f "$_gtr_init"; or git gtr init fish >/dev/null 2>&1
+  source "$_gtr_init" 2>/dev/null
+end
+
 switch (uname)
   case Linux
     test -f ~/.config/fish/config_linux.fish; and source ~/.config/fish/config_linux.fish
