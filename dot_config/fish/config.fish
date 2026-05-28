@@ -22,6 +22,11 @@ end
 if test -d $HOME/.fzf/bin
   fish_add_path --path $HOME/.fzf/bin # local installed fzf
 end
+# VSCode
+# '/Applications/Visual Studio Code.app/Contents/Resources/app/bin'
+if test -d '/Applications/Visual Studio Code.app/Contents/Resources/app/bin'
+  fish_add_path --path '/Applications/Visual Studio Code.app/Contents/Resources/app/bin'
+end
 fish_add_path --path /usr/local/bin
 fish_add_path --path /usr/local/sbin
 fish_add_path --path $HOME/bin
