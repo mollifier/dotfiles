@@ -196,9 +196,18 @@ end
 # gtr #{{{1
 # https://github.com/coderabbitai/git-worktree-runner
 if type -q git-gtr
+  # use git gtr init to enable gtr cd:
   set -l _gtr_init (test -n "$XDG_CACHE_HOME" && echo $XDG_CACHE_HOME || echo $HOME/.cache)/gtr/init-gtr.fish
   test -f "$_gtr_init"; or git gtr init fish >/dev/null 2>&1
   source "$_gtr_init" 2>/dev/null
+
+  # completions
+  if not test -d ~/.config/fish/completions
+    mkdir -p ~/.config/fish/completions
+  end
+  if not test -f ~/.config/fish/completions/git-gtr.fish
+    git-gtr completion fish > ~/.config/fish/completions/git-gtr.fish
+  end
 end
 
 switch (uname)
