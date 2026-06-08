@@ -1,13 +1,13 @@
 function fish_user_key_bindings
   # ignore EOF
   # erase delete-or-exit and bind delete-char
-  bind \cd delete-char
+  bind ctrl-d delete-char
 
   # z
-  bind \cxb user_z_select_and_change_directory
-  bind \cx\cb user_z_select_and_change_directory
+  bind ctrl-x,b user_z_select_and_change_directory
+  bind ctrl-x,ctrl-b user_z_select_and_change_directory
 
   # decors/fish-ghq
-  bind \cxg __ghq_repository_search
-  bind \cx\cg __ghq_repository_search
+  bind ctrl-x,g __ghq_repository_search
+  bind ctrl-x,ctrl-g __ghq_repository_search
 end
