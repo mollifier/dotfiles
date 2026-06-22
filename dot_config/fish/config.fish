@@ -216,3 +216,5 @@ end
 if set -q MANAGED_DEVCONTAINER
   test -f ~/.config/fish/config_devcontainer.fish; and source ~/.config/fish/config_devcontainer.fish
 end
+
+test -f ~/.config/fish/config_local.fish; and source ~/.config/fish/config_local.fish
