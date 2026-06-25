@@ -38,7 +38,6 @@ export HISTFILESIZE=1000000
 
 #etc
 export EDITOR=vim
-export LESS='--tabs=4 --no-init'
 
 # direnv #{{{2
 # https://github.com/zimbatm/direnv
