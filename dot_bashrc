@@ -86,7 +86,9 @@ alias mv='mv -i'
 
 #vi
 alias vi='vim'
-alias vir='vim -R'
+alias v='vim'
+alias vir='vim -M'
+alias vr='vim -M'
 alias winvi='vim -c "edit ++fileformat=dos ++enc=cp932"'
 alias eucvi='vim -c "edit ++enc=euc-jp"'
 alias gm='gvim'

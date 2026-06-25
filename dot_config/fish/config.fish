@@ -75,8 +75,8 @@ alias ......='cd ../../../../..'
 #vi
 alias vi='vim'
 alias v='vim'
-alias vir='vim -R'
-alias vr='vim -R'
+alias vir='vim -M'
+alias vr='vim -M'
 
 # history
 alias his='history'
