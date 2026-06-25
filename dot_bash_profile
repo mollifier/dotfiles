@@ -20,12 +20,6 @@ if [ -d "${HOME}/bin" ]; then
     mergepath "${HOME}/bin" "after"
 fi
 
-# for java
-if [ -d "/usr/java/default" ]; then
-    export JAVA_HOME="/usr/java/default"
-    mergepath "${JAVA_HOME}/bin" "before"
-fi
-
 unset -f mergepath 
 
 unset USERNAME
