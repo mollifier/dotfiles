@@ -6,7 +6,7 @@ fi
 
 # tpm(Tmux Plugin Manager)
 # https://github.com/tmux-plugins/tpm
-if [ -x ~/.tmux/plugins/tpm/bin/install_plugins ]; then
-  ~/.tmux/plugins/tpm/bin/install_plugins
+if [ -x ~/.config/tmux/plugins/tpm/bin/install_plugins ]; then
+  ~/.config/tmux/plugins/tpm/bin/install_plugins
 fi
 
