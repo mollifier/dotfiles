@@ -30,4 +30,7 @@ ehthumbs_vista.db
 doc/tags
 doc/tags-ja
 
+# Claude Code
+**/.claude/settings.local.json
+
 # vim:set ft=gitignore:
