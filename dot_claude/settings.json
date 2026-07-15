@@ -5,5 +5,9 @@
     "Notification":     [{ "hooks": [{ "type": "command", "command": "[ -n \"$TMUX_PANE\" ] && { tmux set -w -t \"$TMUX_PANE\" @claude_icon '🔔'; tmux refresh-client -S; }" }] }],
     "Stop":             [{ "hooks": [{ "type": "command", "command": "[ -n \"$TMUX_PANE\" ] && { tmux set -w -t \"$TMUX_PANE\" @claude_icon '✅'; tmux refresh-client -S; }" }] }],
     "SessionEnd":       [{ "hooks": [{ "type": "command", "command": "[ -n \"$TMUX_PANE\" ] && { tmux set -w -t \"$TMUX_PANE\" @claude_icon ''; tmux refresh-client -S; }" }] }]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.sh"
   }
 }
