@@ -1,13 +1,105 @@
 {
-  "theme": "dark",
   "hooks": {
-    "UserPromptSubmit": [{ "hooks": [{ "type": "command", "command": "[ -n \"$TMUX_PANE\" ] && { tmux set -w -t \"$TMUX_PANE\" @claude_icon '⏳'; tmux refresh-client -S; }" }] }],
-    "Notification":     [{ "hooks": [{ "type": "command", "command": "[ -n \"$TMUX_PANE\" ] && { tmux set -w -t \"$TMUX_PANE\" @claude_icon '🔔'; tmux refresh-client -S; }" }] }],
-    "Stop":             [{ "hooks": [{ "type": "command", "command": "[ -n \"$TMUX_PANE\" ] && { tmux set -w -t \"$TMUX_PANE\" @claude_icon '✅'; tmux refresh-client -S; }" }] }],
-    "SessionEnd":       [{ "hooks": [{ "type": "command", "command": "[ -n \"$TMUX_PANE\" ] && { tmux set -w -t \"$TMUX_PANE\" @claude_icon ''; tmux refresh-client -S; }" }] }]
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -z \"$TMUX_PANE\" ] || { tmux set -w -t \"$TMUX_PANE\" @claude_icon '⏳'; tmux refresh-client -S; }"
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -z \"$TMUX_PANE\" ] || { tmux set -w -t \"$TMUX_PANE\" @claude_icon '🔔'; tmux refresh-client -S; }"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -z \"$TMUX_PANE\" ] || { tmux set -w -t \"$TMUX_PANE\" @claude_icon '✅'; tmux refresh-client -S; }"
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -z \"$TMUX_PANE\" ] || { tmux set -w -t \"$TMUX_PANE\" @claude_icon ''; tmux refresh-client -S; }"
+          }
+        ]
+      }
+    ]
   },
   "statusLine": {
     "type": "command",
     "command": "~/.claude/statusline.sh"
+  },
+  "enabledPlugins": {
+    "rally@rally-agent-kit": true
+  },
+  "modelSettings": {
+    "claude-opus-5-5": {
+      "effortLevel": "xhigh"
+    }
+  },
+  "theme": "dark",
+  "autoMode": {
+    "soft_deny": [
+      "$defaults",
+      "Bash(rm:*) in tmp/local_secret.txt or config/master.key or config/credentials.yml.enc — Irreversible Local Destruction / Credential Leakage risk for local secret files in faithcreates/rally"
+    ],
+    "environment": [
+      "### Org-wide",
+      "**Organization**: rallyapp (GitHub org, inferred from repo remote `github.com/rallyapp/rally-library-react`)",
+      "**Cloud provider(s)**: AWS (inferred from CI secret names `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_NPM_S3_BUCKET_NAME`)",
+      "**Repository visibility**: private (rallyapp/rally-library-react, confirmed via gh)",
+      "**Internal sharing / snippet hosting**: None configured — treat public paste/gist services as outside the trust boundary",
+      "**Secrets management**: CI secrets referenced by name only: AWS_ACCESS_KEY_ID, AWS_NPM_S3_BUCKET_NAME, AWS_SECRET_ACCESS_KEY, CHROMATIC_PROJECT_TOKEN, FONTAWESOME_PACKAGE_TOKEN, SLACK_NOTIFICATION_WEBHOOK_URL (names only, not values)",
+      "**Default / protected branches**: main (default), main (protected via rulesets: default-branch-ruleset, branch-ruleset — both active)",
+      "**CI/CD deploy targets**: None configured",
+      "**Network posture**: None configured",
+      "**Source control**: rallyapp/rally-library-react (github.com) and its configured remote (origin) only",
+      "**Trusted internal domains**: npm.rallyapp.jp, npm.fontawesome.com",
+      "**Trusted cloud buckets**: None configured",
+      "**Key internal services**: rally-ops-web (https://github.com/rallyapp/rally-ops/tree/main/rally-ops-web), rally-library-react-storybook (https://rally-library-react-storybook.netlify.app)",
+      "**Internal package registry**: npm.rallyapp.jp（rally-library-react の npm パッケージ公開先）",
+      "**Sensitive data locations & audiences**: .env, .env.test, .envrc, .devcontainer/.env — credentials and local config, not for sharing outside the project",
+      "**Data retention / declassification**: None configured",
+      "**Sensitive remote targets**: any namespace, host, or container whose name carries `prod` or `production` as a whole word or name segment",
+      "**Protected deployment namespaces / environments**: None configured — fall back to the Sensitive remote targets heuristic",
+      "**Protected IaC scopes**: IAM, RBAC, networking, quota, and node-pool resources; anything whose name or tag carries `prod` or `production` as a whole word or name segment",
+      "**Organization**: None configured",
+      "**Cloud provider(s)**: AWS (inferred from CI secret names `PROD_ECR_AWS_ACCESS_KEY_ID`, `PROD_ECR_AWS_SECRET_ACCESS_KEY`, `STG_ECR_AWS_ACCESS_KEY_ID`, `STG_ECR_AWS_SECRET_ACCESS_KEY`)",
+      "**Repository visibility**: private (faithcreates/rally, confirmed via gh)",
+      "**Secrets management**: CI secrets referenced by name only: PROD_ECR_AWS_ACCESS_KEY_ID, PROD_ECR_AWS_SECRET_ACCESS_KEY, STG_ECR_AWS_ACCESS_KEY_ID, STG_ECR_AWS_SECRET_ACCESS_KEY (names only, not values); local secret-bearing files present: config/master.key (gitignored), .env, .envrc, config/credentials.yml.enc, tmp/local_secret.txt",
+      "**Default / protected branches**: master (default), protected: deployment/production, deployment/staging, master (rulesets: default-branch-ruleset, release-branch-ruleset, branch-ruleset, deployment-branch-ruleset — all active)",
+      "**Host containment**: None configured — assume Claude Code runs on an ordinary developer machine or CI runner with open internet",
+      "**Source control**: faithcreates/rally (github.com) and its configured remote (origin) only",
+      "**Trusted internal domains**: None configured",
+      "**Key internal services**: None configured",
+      "**Internal package registry**: None configured",
+      "**Sensitive data locations & audiences**: .env, .envrc, config/master.key, config/credentials.yml.enc, tmp/local_secret.txt, infra/cdk/lib/iam-stack.ts — credentials and local config, not for sharing outside the project",
+      "**Sensitive remote targets**: any namespace, host, or container whose name carries `prod` or `production` as a whole word or name segment (e.g. `deployment/production`, ECR prod credentials/namespaces)",
+      "**Protected deployment namespaces / environments**: deployment/production, deployment/staging (protected branches); PROD_ECR / STG_ECR-backed container registries and deploy targets",
+      "**Protected IaC scopes**: IAM, RBAC, networking, quota, and node-pool resources; anything whose name or tag carries `prod` or `production` as a whole word or name segment; infra/cdk/lib/iam-stack.ts (IAM stack definition)",
+      "### User-specific",
+      "**Primary use of Claude Code**: software development (rally-library-react npm パッケージのコンポーネント開発・パッケージ更新作業)",
+      "**Trusted repo**: rallyapp/rally-library-react (github.com, private) and its remote origin — confidential material is OK to commit/push here; secrets are never cleared into it by visibility alone",
+      "**Org-specific CLIs**: None configured",
+      "routine under rallyapp/rally-library-react prefix: npm パッケージ更新作業（update-packages スキル）、npm publish 先は npm.rallyapp.jp",
+      "**Primary use of Claude Code**: software development",
+      "**Trusted repo**: faithcreates/rally (github.com, private) and its remote origin — confidential material is OK to commit/push here; secrets are never cleared into it by visibility alone"
+    ]
   }
 }
